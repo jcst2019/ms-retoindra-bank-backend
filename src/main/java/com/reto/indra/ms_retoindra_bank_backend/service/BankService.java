@@ -1,6 +1,7 @@
 package com.reto.indra.ms_retoindra_bank_backend.service;
 
 import com.reto.indra.ms_retoindra_bank_backend.controller.BankController;
+import com.reto.indra.ms_retoindra_bank_backend.exception.ModeloNotFoundException;
 import com.reto.indra.ms_retoindra_bank_backend.model.Customer;
 import com.reto.indra.ms_retoindra_bank_backend.model.FinancialProductDocument;
 import com.reto.indra.ms_retoindra_bank_backend.model.InformationResponse;
@@ -25,11 +26,14 @@ public class BankService {
 
     public Mono<InformationResponse> getCombinedResponse(String uniqueCode) {
         logger.info("Consumiendo Servicio Customer");
-        Mono<Customer> customerMono = customerService.getCustomerByUniqueCode(uniqueCode);
-        logger.info("Consumiendo Servicio Customer => "+ customerMono);
+        Mono<Customer> customerMono = customerService.getCustomerByUniqueCode(uniqueCode)
+                .switchIfEmpty(Mono.error(new ModeloNotFoundException("Customer not found for unique code: " + uniqueCode)));
+        logger.info("Consumiendo Servicio Customer => "+ customerMono.toString());
         logger.info("Consumiendo Servicio financialProducts");
-        Mono<List<FinancialProductDocument>> financialProductsMono = financialProductService.getFinancialProductsByUniqueCode(uniqueCode).collectList();
-        logger.info("Consumiendo Servicio financialProducts => "+financialProductsMono);
+        Mono<List<FinancialProductDocument>> financialProductsMono = financialProductService.getFinancialProductsByUniqueCode(uniqueCode).collectList()
+                .filter(list -> !list.isEmpty())
+                .switchIfEmpty(Mono.error(new ModeloNotFoundException("Financial products not found for unique code: " + uniqueCode)));
+        logger.info("Consumiendo Servicio financialProducts => "+financialProductsMono.toString());
         logger.info("Combinando Flujos");
         return Mono.zip(customerMono, financialProductsMono, (customer, financialProducts) -> {
             InformationResponse combinedResponse = new InformationResponse();
