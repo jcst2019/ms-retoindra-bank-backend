@@ -13,8 +13,8 @@ Este repositorio contiene el microservicio `ms-retoindra-bank-backend`, el cual 
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/jcst2019/ms-retoindra-bank-backend.git
-
+    git clone https://github.com/jcst2019/ms-retoindra-bank-backend.git
+    git clone https://github.com/jcst2019/starter-utilitarian-lib.git (Libreria)
 ## Uso
 El microservicio proporciona diferentes puntos finales (endpoints) REST para interactuar con los clientes del banco y sus productos financieros.
 
