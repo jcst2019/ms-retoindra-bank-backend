@@ -4,6 +4,9 @@ import com.reto.indra.ms_retoindra_bank_backend.controller.BankController;
 import com.reto.indra.ms_retoindra_bank_backend.model.Customer;
 import com.reto.indra.ms_retoindra_bank_backend.model.FinancialProductDocument;
 import com.reto.indra.ms_retoindra_bank_backend.model.InformationResponse;
+import com.reto.indra.ms_retoindra_bank_backend.service.IBankService;
+import com.reto.indra.ms_retoindra_bank_backend.service.ICustomerService;
+import com.reto.indra.ms_retoindra_bank_backend.service.IFinancialProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -26,13 +29,13 @@ import java.util.Date;
 class MsRetoindraBankBackendApplicationTests {
 
 	@Mock
-	private FinancialProductService financialProductService;
+	private IFinancialProductService financialProductService;
 
 	@Mock
-	private CustomerService customerService;
+	private ICustomerService customerService;
 
 	@Mock
-	private BankService bankService;
+	private IBankService bankService;
 
 	@InjectMocks
 	private BankController bankController;

@@ -6,6 +6,8 @@ import com.reto.indra.ms_retoindra_bank_backend.model.Customer;
 import com.reto.indra.ms_retoindra_bank_backend.model.FinancialProductDocument;
 import com.reto.indra.ms_retoindra_bank_backend.model.InformationResponse;
 import com.reto.indra.ms_retoindra_bank_backend.service.IBankService;
+import com.reto.indra.ms_retoindra_bank_backend.service.ICustomerService;
+import com.reto.indra.ms_retoindra_bank_backend.service.IFinancialProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,10 @@ public class BankServiceImpl implements IBankService {
     private static final Logger logger = LoggerFactory.getLogger(BankController.class);
 
     @Autowired
-    private FinancialProductService financialProductService;
+    private IFinancialProductService financialProductService;
 
     @Autowired
-    private CustomerService customerService;
+    private ICustomerService customerService;
 
     @Override
     public Mono<InformationResponse> getCombinedResponse(String uniqueCode) {
