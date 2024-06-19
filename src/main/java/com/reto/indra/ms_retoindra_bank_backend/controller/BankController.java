@@ -3,9 +3,7 @@ package com.reto.indra.ms_retoindra_bank_backend.controller;
 import com.reto.indra.ms_retoindra_bank_backend.model.Customer;
 import com.reto.indra.ms_retoindra_bank_backend.model.FinancialProductDocument;
 import com.reto.indra.ms_retoindra_bank_backend.model.InformationResponse;
-import com.reto.indra.ms_retoindra_bank_backend.service.BankService;
-import com.reto.indra.ms_retoindra_bank_backend.service.CustomerService;
-import com.reto.indra.ms_retoindra_bank_backend.service.FinancialProductService;
+import com.reto.indra.ms_retoindra_bank_backend.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +23,17 @@ public class BankController {
     @Autowired
     private FinancialProductService financialProductService;
 
-    @Autowired
-    private CustomerService customerService;
+//    @Autowired
+//    private CustomerService customerService;
 
     @Autowired
-    private BankService bankService;
+    private ICustomerService customerService;
+
+//    @Autowired
+//    private BankService bankService;
+
+    @Autowired
+    private IBankService bankService;
 
     @GetMapping(value="/productFindByUniqueCode")
     public ResponseEntity<Flux<FinancialProductDocument>> productFindByUniqueCode(@RequestParam("uniqueCode") String encodedUniqueCode){
