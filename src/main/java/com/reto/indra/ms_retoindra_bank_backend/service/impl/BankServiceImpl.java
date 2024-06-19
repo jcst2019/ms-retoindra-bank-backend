@@ -5,8 +5,6 @@ import com.reto.indra.ms_retoindra_bank_backend.exception.ModeloNotFoundExceptio
 import com.reto.indra.ms_retoindra_bank_backend.model.Customer;
 import com.reto.indra.ms_retoindra_bank_backend.model.FinancialProductDocument;
 import com.reto.indra.ms_retoindra_bank_backend.model.InformationResponse;
-import com.reto.indra.ms_retoindra_bank_backend.service.CustomerService;
-import com.reto.indra.ms_retoindra_bank_backend.service.FinancialProductService;
 import com.reto.indra.ms_retoindra_bank_backend.service.IBankService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

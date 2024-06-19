@@ -21,16 +21,10 @@ public class BankController {
     private static final Logger logger = LoggerFactory.getLogger(BankController.class);
 
     @Autowired
-    private FinancialProductService financialProductService;
-
-//    @Autowired
-//    private CustomerService customerService;
+    private IFinancialProductService financialProductService;
 
     @Autowired
     private ICustomerService customerService;
-
-//    @Autowired
-//    private BankService bankService;
 
     @Autowired
     private IBankService bankService;
