@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Mono;
@@ -47,10 +46,10 @@ public class CustomerServiceImplTest {
                 "Juan Carlos",
                 "Solar",
                 "87654321",
-                25,
-                "456 Elm St",
+                39,
+                "piura",
                 "9876543210",
-                "jane@example.com",
+                "juan@example.com",
                 new Date()
         );
     }
@@ -72,10 +71,10 @@ public class CustomerServiceImplTest {
                         customer.getName().equals("Juan Carlos") &&
                         customer.getLastName().equals("Solar") &&
                         customer.getDni().equals("87654321") &&
-                        customer.getAge() == 25 &&
-                        customer.getAddress().equals("456 Elm St") &&
+                        customer.getAge() == 39 &&
+                        customer.getAddress().equals("piura") &&
                         customer.getPhoneNumber().equals("9876543210") &&
-                        customer.getEmail().equals("jane@example.com"))
+                        customer.getEmail().equals("juan@example.com"))
                 .verifyComplete();
     }
 
