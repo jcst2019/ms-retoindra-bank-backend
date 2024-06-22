@@ -7,6 +7,7 @@ Este repositorio contiene el microservicio `ms-retoindra-bank-backend`, el cual 
 
 - `master`: Contiene la versión estable y desplegable del microservicio.
 - `2024-001`: Desarrollo de Requerimientos.
+- `2024-002`: Refcator interfaz e impl capa Service.
 
 ## Instalación
 
